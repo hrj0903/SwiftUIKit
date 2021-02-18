@@ -17,7 +17,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Picture \(selectedPicturePosition) of \(totalNumberOfImages)"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(suggestion))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+
         navigationItem.largeTitleDisplayMode = .never
         
         if let imageToLoad = selectedImage {
@@ -37,14 +38,16 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
     }
     
-    @objc func suggestion() {
-        let link = "https://github.com/hrj0903"
+    @objc func shareTapped() {
+        guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+            print("No image found")
+            return
+        }
         
-        let vc = UIActivityViewController(activityItems: [link], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [image, selectedImage!], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
-
 
     /*
     // MARK: - Navigation

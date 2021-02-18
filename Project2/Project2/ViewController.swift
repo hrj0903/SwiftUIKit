@@ -41,7 +41,8 @@ class ViewController: UIViewController {
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
         correctAnswer = Int.random(in: 0...2)
-        title = "\(countries[correctAnswer].uppercased())    Score: \(score)"
+        title = "\(countries[correctAnswer].uppercased())"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show Score: \(score)", style: .plain, target: self, action: #selector(showScore))
         
         
     }
@@ -67,6 +68,12 @@ class ViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
             present(ac, animated: true)
         }
+    }
+    
+    @objc func showScore() {
+        let scoreAlert = UIAlertController(title: "Score", message: nil, preferredStyle: .alert)
+        scoreAlert.addAction(UIAlertAction(title: "Your current score is \(score).", style: .default, handler: nil))
+        present(scoreAlert, animated: true)
     }
 }
 
