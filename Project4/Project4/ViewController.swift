@@ -6,49 +6,38 @@
 //
 
 import UIKit
-import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate {
-    var webView: WKWebView!
-    
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
-    }
+class ViewController: UITableViewController {
+    var websites = ["apple.com", "hackingwithswift.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
-        
-        let url = URL(string: "https://www.hackingwithswift.com")!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
-        // Do any additional setup after loading the view.
+        title = "Websites"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    @objc func openTapped() {
-        let ac = UIAlertController(title: "Open page...", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "apple.com", style: .default, handler: openPage))
-        ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .default, handler: openPage))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-        present(ac, animated: true)
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return websites.count
     }
     
-    func openPage(action: UIAlertAction) {
-        //guard let actionTitle = action.title else { return }
-        //guard let url = URL(string: "https://" + actionTitle) else { return }
-        //webView.load(URLRequest(url: url)
-        let url = URL(string: "https://" + action.title!)!
-        webView.load(URLRequest(url: url))
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "URL", for: indexPath)
+        cell.textLabel?.text = websites[indexPath.row]
+        return cell
     }
     
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        title = webView.title
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
     }
-
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 1: try loading the "Detail" view controller and typecasting it to be DetailViewController
+        if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
+            vc.webIndex = indexPath.row
+            vc.websites = websites
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 

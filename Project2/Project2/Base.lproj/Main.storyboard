@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L9K-9q-hZM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XUs-mz-IBB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -9,74 +9,74 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="6rC-OI-nSU">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="j4C-lw-1ff" customClass="ViewController" customModule="Project2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jQV-TL-wKS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhT-Yx-xxt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkM-qh-2Oc">
                                 <rect key="frame" x="107" y="100" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3MC-Lv-DgL"/>
+                                    <action selector="buttonTapped:" destination="j4C-lw-1ff" eventType="touchUpInside" id="uxw-UV-i3e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vl2-k8-x0v">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6a-J6-JRJ">
                                 <rect key="frame" x="107" y="230" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KFe-8f-aY9"/>
+                                    <action selector="buttonTapped:" destination="j4C-lw-1ff" eventType="touchUpInside" id="1ZF-rP-iIt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGD-Mn-vhX">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwh-eY-Nyd">
                                 <rect key="frame" x="107" y="360" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J87-Ls-GPE"/>
+                                    <action selector="buttonTapped:" destination="j4C-lw-1ff" eventType="touchUpInside" id="Xjq-Bj-cvN"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="E0l-Hv-YnJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oGD-Mn-vhX" firstAttribute="centerX" secondItem="vl2-k8-x0v" secondAttribute="centerX" id="0nb-Vr-csA"/>
-                            <constraint firstItem="oGD-Mn-vhX" firstAttribute="top" secondItem="vl2-k8-x0v" secondAttribute="bottom" constant="120" id="6rd-uZ-vpO"/>
-                            <constraint firstItem="rhT-Yx-xxt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MNp-cl-nVK"/>
-                            <constraint firstItem="rhT-Yx-xxt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="PJ8-go-LFi"/>
-                            <constraint firstItem="vl2-k8-x0v" firstAttribute="centerX" secondItem="rhT-Yx-xxt" secondAttribute="centerX" id="gVa-bQ-7Ll"/>
-                            <constraint firstItem="vl2-k8-x0v" firstAttribute="top" secondItem="rhT-Yx-xxt" secondAttribute="bottom" constant="30" id="zEe-lZ-H4z"/>
+                            <constraint firstItem="gwh-eY-Nyd" firstAttribute="centerX" secondItem="L6a-J6-JRJ" secondAttribute="centerX" id="MAh-OF-Lp7"/>
+                            <constraint firstItem="L6a-J6-JRJ" firstAttribute="centerX" secondItem="dkM-qh-2Oc" secondAttribute="centerX" id="Xjm-1m-WBt"/>
+                            <constraint firstItem="dkM-qh-2Oc" firstAttribute="top" secondItem="E0l-Hv-YnJ" secondAttribute="top" constant="12" id="YhF-1t-2xD"/>
+                            <constraint firstItem="dkM-qh-2Oc" firstAttribute="centerX" secondItem="E0l-Hv-YnJ" secondAttribute="centerX" id="pEZ-TA-X5C"/>
+                            <constraint firstItem="L6a-J6-JRJ" firstAttribute="top" secondItem="dkM-qh-2Oc" secondAttribute="bottom" constant="30" id="y7a-nZ-U5u"/>
+                            <constraint firstItem="gwh-eY-Nyd" firstAttribute="top" secondItem="L6a-J6-JRJ" secondAttribute="bottom" constant="30" id="yQn-l7-E8W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jY2-sL-uTI"/>
+                    <navigationItem key="navigationItem" id="367-ge-fhH"/>
                     <connections>
-                        <outlet property="button1" destination="rhT-Yx-xxt" id="gMF-JZ-nav"/>
-                        <outlet property="button2" destination="vl2-k8-x0v" id="Aia-x5-92x"/>
-                        <outlet property="button3" destination="oGD-Mn-vhX" id="SvR-cz-zNn"/>
+                        <outlet property="button1" destination="dkM-qh-2Oc" id="0m1-n5-3gH"/>
+                        <outlet property="button2" destination="L6a-J6-JRJ" id="CJt-7o-PAd"/>
+                        <outlet property="button3" destination="gwh-eY-Nyd" id="7hG-A7-4JQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8H-7g-WzG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="923.1884057971015" y="70.982142857142847"/>
+            <point key="canvasLocation" x="1442.0289855072465" y="-21.428571428571427"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="6Zt-rY-RdS">
+        <scene sceneID="9Kj-h8-zyf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L9K-9q-hZM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XUs-mz-IBB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7HT-ua-y31">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AvD-1i-BAn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3Xv-QQ-Y9i"/>
+                        <segue destination="j4C-lw-1ff" kind="relationship" relationship="rootViewController" id="d9V-8H-hjC"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zh2-jp-eFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R68-6J-Cfa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13.043478260869566" y="70.982142857142847"/>
+            <point key="canvasLocation" x="531.8840579710145" y="-21.428571428571427"/>
         </scene>
     </scenes>
     <resources>

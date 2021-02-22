@@ -16,6 +16,7 @@ class ViewController: UITableViewController {
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareAppTapped))
         
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
@@ -38,7 +39,12 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = pictures[indexPath.row]
+        cell.imageView?.image = UIImage(named: pictures[indexPath.row])
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -51,6 +57,14 @@ class ViewController: UITableViewController {
             //3: now push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    @objc func shareAppTapped() {
+        let shareMessage = "Do you like this App? Let's share and recommend it!"
+        
+        let vc = UIActivityViewController(activityItems: [shareMessage], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
 }
 

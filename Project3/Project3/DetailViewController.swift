@@ -25,7 +25,6 @@ class DetailViewController: UIViewController {
             imageView.image = UIImage(named: imageToLoad)
         }
 
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +43,9 @@ class DetailViewController: UIViewController {
             return
         }
         
-        let vc = UIActivityViewController(activityItems: [image, selectedImage!], applicationActivities: [])
+        let imageName = selectedImage!.replacingOccurrences(of: ".jpg", with: "")
+        
+        let vc = UIActivityViewController(activityItems: [image, imageName], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }

@@ -38,6 +38,7 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = flags[indexPath.row].uppercased().replacingOccurrences(of: "@3X.PNG", with: "")
         cell.imageView?.image = UIImage(named: flags[indexPath.row])
         cell.imageView?.layer.borderWidth = 1
+        cell.imageView?.layer.borderColor = UIColor.lightGray.cgColor
         return cell
     }
     
