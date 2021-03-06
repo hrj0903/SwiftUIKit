@@ -30,16 +30,6 @@ class ViewController: UITableViewController {
         
         startGame()
     }
- 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usedWords.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
-        cell.textLabel?.text = usedWords[indexPath.row]
-        return cell
-    }
     
     @objc func startGame() {
         //Line 1 sets our view controller's title to be a random word in the array, which will be the word the player has to find.
@@ -49,6 +39,17 @@ class ViewController: UITableViewController {
         //That table view is given to us as a property because our ViewController class comes from UITableViewController, and calling reloadData() forces it to call numberOfRowsInSection again, as well as calling cellForRowAt repeatedly.
         tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return usedWords.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+        cell.textLabel?.text = usedWords[indexPath.row]
+        return cell
+    }
+ 
     
     @objc func promptForAnswer() {
         let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
