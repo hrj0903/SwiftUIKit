@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         }
     }
     var level = 1
+    var correctAnswers = 0
     
     override func loadView() {
         view = UIView()
@@ -137,6 +138,8 @@ class ViewController: UIViewController {
                 // calculate the frame of this button using its column and row
                 let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
                 letterButton.frame = frame
+                letterButton.layer.borderWidth = 1
+                letterButton.layer.borderColor = UIColor.lightGray.cgColor
 
                 // add it to the buttons view
                 buttonsView.addSubview(letterButton)
@@ -176,12 +179,25 @@ class ViewController: UIViewController {
             
             currentAnswer.text = ""
             score += 1
+            correctAnswers += 1
             
-            if score % 7 == 0 {
+            if correctAnswers % 7 == 0 {
                 let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            currentAnswer.text = ""
+            for btn in activatedButtons {
+                btn.isHidden = false
+            }
+            activatedButtons.removeAll()
+            
+            let ac = UIAlertController(title: "Wrong!", message: "Try again...", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default)
+            ac.addAction(ok)
+            present(ac, animated: true)
+            score -= 1
         }
     }
     
@@ -241,6 +257,7 @@ class ViewController: UIViewController {
         if letterButtons.count == letterBits.count {
             for i in 0 ..< letterButtons.count {
                 letterButtons[i].setTitle(letterBits[i], for: .normal)
+                
             }
         }
     }
