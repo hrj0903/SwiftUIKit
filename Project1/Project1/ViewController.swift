@@ -18,18 +18,10 @@ class ViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareAppTapped))
         
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        let items = try! fm.contentsOfDirectory(atPath: path)
+        performSelector(inBackground: #selector(loadImageList), with: nil)
         
-        for item in items {
-            if item.hasPrefix("nssl") {
-                pictures.append(item)
-            }
-        }
+        tableView.reloadData()
         
-        pictures.sort()
-        print(pictures)
     }
     // n번째 섹션에 몇 개의 row가 존재하는지를 반환합니다.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +57,21 @@ class ViewController: UITableViewController {
         let vc = UIActivityViewController(activityItems: [shareMessage], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+    }
+    
+    @objc func loadImageList() {
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        for item in items {
+            if item.hasPrefix("nssl") {
+                pictures.append(item)
+            }
+        }
+        
+        pictures.sort()
+//        print(pictures)
     }
 }
 

@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     
     var score = 0 {
         didSet {
-            scoreLabel.text = "Score: \(score)"
+            DispatchQueue.main.async { [weak self] in
+                self?.scoreLabel.text = "Score: \(self?.score ?? 0)"
+            }
         }
     }
     var level = 1
@@ -157,7 +159,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadLevel()
+        performSelector(onMainThread: #selector(loadLevel), with: nil, waitUntilDone: false)
     }
     
     @objc func letterTapped(_ sender: UIButton) {
@@ -222,7 +224,7 @@ class ViewController: UIViewController {
         activatedButtons.removeAll()
     }
     
-    func loadLevel() {
+    @objc func loadLevel() {
         var clueString = ""
         var solutionString = ""
         var letterBits = [String]()

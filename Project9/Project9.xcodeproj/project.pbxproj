@@ -46,7 +46,7 @@
 		01C7207925F33A2600E65E79 = {
 			isa = PBXGroup;
 			children = (
-				01C7208425F33A2600E65E79 /* Project7 */,
+				01C7208425F33A2600E65E79 /* Project9 */,
 				01C7208325F33A2600E65E79 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,7 +59,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		01C7208425F33A2600E65E79 /* Project7 */ = {
+		01C7208425F33A2600E65E79 /* Project9 */ = {
 			isa = PBXGroup;
 			children = (
 				01C7208525F33A2600E65E79 /* AppDelegate.swift */,
@@ -73,7 +73,6 @@
 				01C7209025F33A2700E65E79 /* LaunchScreen.storyboard */,
 				01C7209325F33A2700E65E79 /* Info.plist */,
 			);
-			name = Project7;
 			path = Project9;
 			sourceTree = "<group>";
 		};
